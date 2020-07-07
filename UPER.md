@@ -25,13 +25,13 @@
 </h2>
 
 * Decide on a name for the game
-* Create characters for the date-able sims
+* Create characters to be the player's companions in each game area
 * Create class diagrams for game
-* Write out overarching storylines for each character
-* Write introductory interactions for all sims
-* Write interactions for each sim
+* Write out overarching storylines for each game area
+* Write introductory interactions for all NPCs
+* Write storylines for each day played in each game area
 * Create a logo
-* Create images of each sim
+* Create images of each NPC
 * Create landing page for game
 * 
 
@@ -40,14 +40,19 @@
 </h2>
 
 * Game name- Terminal Fascination
-* Date-able sims
+* NPC Companions:
     - Princess Jessica (Natural loving human)
     - Adametes (Warrior half-bear half-human Centaur)
-    - Gabel (Flirty older man)
+    - Gabel (Dangerous Bandit)
     - Criteon (Mysterious shapeshifter)
-* Sim personalities written (Will add here later to avoid spoilers)
-* Possible date locations created (Will add here later to avoid spoilers)
-*
+* NPC personalities written (Will add here later to avoid spoilers)
+* Game areas created:
+    - Royal Court - Home of Princess Jessica, overrun with the Kingdom's enemies
+    - Woods - Home of Adametes, crawling with enemies on their way to the Royal Court
+    - Abandoned Castle - Home of cast out Lord of the land, now full of bandits looting the previous Lord's treasure
+    - Underground Tunnels - Tunnels running under most of the Kingdom, almost completely forgotten, enemies have just discovered a way in through the Royal Court
+    - Tavern - a location the player will only be allowed to visit once, that introduces them to all the NPCs
+* Class diagram created (assets/class-diagram.png)
 *
 *
 *

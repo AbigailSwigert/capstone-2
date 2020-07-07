@@ -15,7 +15,6 @@
 * [Hangman](https://hangmanwordgame.com/?fca=1&success=0#/)
 * [Sudoko](https://sudoku.game/)
 * [Minesweeper](https://cardgames.io/minesweeper/)
-* [Connect Four](https://www.mathsisfun.com/games/connect4.html)
 * [CRT Racer](https://kronbits.itch.io/crt-racer) 
 * [CRT Racer++](https://www.ultimateracing2d.com/) 
 * [2048-cli](https://play2048.co/)
@@ -24,8 +23,7 @@
 * [lode runner](http://loderunnerwebgame.com/game/)
 * [tank wars](https://playclassic.games/games/strategy-dos-games-online/play-tank-wars-online/play/)
 * [Flappy Bird](https://flappybird.io/)
-* [Pong](https://pong-2.com/)
-* [Tetris ](https://tetris.com/games-content/sanrio01/index-mobile.php)
+* [Tetris](https://tetris.com/games-content/sanrio01/index-mobile.php)
   
 Take a look at the screenshots of these games in the <code>game-ideas</code> folder.  You will notice that there are some sample <code>gui</code> games as well, for those who want to go for the Bonus points.  **What is required though, is to make a purely ascii-based game that can be run in the terminal.**
 
