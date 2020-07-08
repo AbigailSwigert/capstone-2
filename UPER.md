@@ -24,6 +24,7 @@
     2. Planning the Solution
 </h2>
 
+* Completed OOP.md
 * Decide on a name for the game
 * Create characters to be the player's companions in each game area
 * Create class diagrams for game
@@ -53,7 +54,7 @@
     - Underground Tunnels - Tunnels running under most of the Kingdom, almost completely forgotten, enemies have just discovered a way in through the Royal Court
     - Tavern - a location the player will only be allowed to visit once, that introduces them to all the NPCs
 * Class diagram created (assets/class-diagram.png)
-*
+* Completed OOP.md
 *
 *
 
