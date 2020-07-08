@@ -7,11 +7,11 @@ public class Species {
         this.speciesName = speciesName;
     }
 
-    public static final Species HUMAN = new Species("human");
-    public static final Species URSATAUR = new Species("ursataur");
-    public static final Species MERPERSON = new Species("merperson");
-    public static final Species SHAPESHIFTER = new Species("shapeshifter");
-    public static final Species KRYSY = new Species("krysy"); //Czech word for rats
+    public static final Species HUMAN = new Species("Human");
+    public static final Species URSATAUR = new Species("Ursataur");
+    public static final Species MERPERSON = new Species("Merperson");
+    public static final Species SHAPESHIFTER = new Species("Shapeshifter");
+    public static final Species KRYSY = new Species("Krysy"); //Czech word for rats
 
     public String getSpecies() {
         return this.speciesName;

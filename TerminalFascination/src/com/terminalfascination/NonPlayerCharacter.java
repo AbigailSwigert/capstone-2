@@ -21,5 +21,5 @@ public class NonPlayerCharacter extends Character {
     public static final NonPlayerCharacter GABEL = new NonPlayerCharacter("Gabel", Species.HUMAN, YELLOW);
     public static final NonPlayerCharacter CRITION = new NonPlayerCharacter("Crition", Species.SHAPESHIFTER, GREEN);
     public static final NonPlayerCharacter AAYLEPHUR = new NonPlayerCharacter("Aaylephur", Species.MERPERSON, CYAN);
-    public static final NonPlayerCharacter KEVON = new NonPlayerCharacter("Kevon", Species.HUMAN, BLACK, true);
+    public static final NonPlayerCharacter KEVON = new NonPlayerCharacter("Kevon", Species.HUMAN, BLUE, true);
 }

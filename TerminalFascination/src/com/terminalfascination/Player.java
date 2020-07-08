@@ -6,7 +6,7 @@ public class Player extends Character {
     private Player(String name, Species species) {
         this.name = name;
         this.species = species;
-        this.textColor = WHITE;
+        this.textColor = BLACK;
     }
 
     public static Player getInstance(String name, Species species) {
