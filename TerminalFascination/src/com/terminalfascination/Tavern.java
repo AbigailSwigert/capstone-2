@@ -144,9 +144,12 @@ public class Tavern extends MapArea {
                     break;
                 case 3:
                     System.out.println(player.textColor + "\nYou: What's up with the comedian?" + Character.RESET);
-                    System.out.println(NonPlayerCharacter.AAYLEPHUR.textColor + "\nAaylephur: He does stand-up comedy here on clear nights, but I don't know much about him, you should ask the Princess about him, he's a close friend of hers. Or you could talk to him yourself, his set is ending soon." + Character.RESET);
+                    System.out.println(NonPlayerCharacter.AAYLEPHUR.textColor + "\nAaylephur: That's Adametes, he does stand-up comedy here on clear nights, but I don't know much about him, you should ask the Princess about him, he's a close friend of hers. Or you could talk to him yourself, his set is ending soon." + Character.RESET);
                     break;
                 case 4:
+                    System.out.println("\nYou begin to rise from your seat but stop short when Aaylephur leans towards you and begins to speak quitely.");
+                    System.out.println(NonPlayerCharacter.AAYLEPHUR.textColor + "\nHey, just a second, you look like the type who pass through here a lot. So in case you're looking for some quick loot, check out the old Abandoned Castle just across the lake. The Lord who used to live there was cast out of the Kingdom years ago, bandits loot it all the time but I hear it's still full of great stuff! Just remember who sent you." + Character.RESET);
+                    System.out.println("\nAaylephur winks at you and goes back to work behind the counter. As you walk away from the bar you feel her black shark-like eyes staring at you. You turn to look, thinking you must be imagining it, but she's staring right at you smiling a sharp toothy grin. You can't tell if it's a bad sign, or if she's just happy she might get some kind of commission from you.");
                     sitSomewhere();
                     break inputLoop;
             }
@@ -154,7 +157,7 @@ public class Tavern extends MapArea {
     }
 
     public void sitNearPrincess() {
-        System.out.println("You make your way over to a table near the woman in the tiara, and sit down with your chair at the perfect angle to watch her without it being obvious that that's what you're doing. At least, that's what you thought, but now she's staring at you.\nOh no, now she's getting up.\nShe's making her way over to you.\nYou're not as slick as you thought...");
+        System.out.println("\nYou make your way over to a table near the woman in the tiara, and sit down with your chair at the perfect angle to watch her without it being obvious that that's what you're doing. At least, that's what you thought, but now she's staring at you.\nOh no, now she's getting up.\nShe's making her way over to you.\nYou're not as slick as you thought...");
         System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nHey stranger, I'm Jessica, the Princess of this Kingdom. What's your name?" + Character.RESET);
         System.out.println(player.textColor + "\nYou: " + player.name + Character.RESET);
         System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nPrincess Jessica: It's nice to meet you " + player.name + ". What brings you to our Kingdom in a time of war?" + Character.RESET);
@@ -168,8 +171,34 @@ public class Tavern extends MapArea {
         sitSomewhere();
     }
 
+    public void followCrition() {
+        System.out.println("Following mysterious figure");
+    }
+
+    public void talkToAdametes() {
+        System.out.println("Talking to Adametes.");
+    }
+
     public void sitNearCrition() {
-        System.out.println("You sat a table with a goofy farmer just to be near the hooded figure");
+        System.out.println("\nYou make your way over to the table nearest the hooded figure, sitting across from the farmer already at the table. You forego any greeting thinking the farmer will ignore you and continue to watch the comedian. You are wrong.");
+        System.out.println(NonPlayerCharacter.KEVON.textColor + "\nHey Man! I'm Kevon, it's spelled K-E-V-O-N but pronounced like 'Kevin.'" + Character.RESET);
+        System.out.println(player.textColor + "\nYou: Why?" + Character.RESET);
+        System.out.println(NonPlayerCharacter.KEVON.textColor + "\nKevon: My mom wanted to name me Devon, and my dad wanted to name me Kenny. They compromised on Kevon. Anyway, how are you enjoying Adametes' routine?" + Character.RESET);
+        System.out.println("\nJust then, you notice the mysterious figure get up to leave. You try to follow him with your eys, but he seems to have timed his exit with the end of Adametes' routine, and all of the patrons are now giving him a standing ovation. Apparently you should have paid more attention to the show, people loved it. The perpetual shadows dripping off the mysterious figure seem to be helping him slither through the crowd, cause you had just about lost him when you noticed the door to the tavern open. The mysterious figure slips though the door, as Adametes greets his friends in the crowd.");
+        inputLoop: while (true) {
+            System.out.println("\nWill you follow the mysterious figure, or introduce yourself to Adametes?\n1. Follow the mysterious figure\n2. Talk to Adametes");
+            this.playerReply = Game.playerInput.nextInt();
+            switch (playerReply) {
+                case 0:
+                    System.exit(0);
+                case 1:
+                    followCrition();
+                    break inputLoop;
+                case 2:
+                    talkToAdametes();
+                    break inputLoop;
+            }
+        }
     }
 
     public void completeLevel(){
@@ -178,9 +207,5 @@ public class Tavern extends MapArea {
             this.finishStory(); // switch to next area after taking input from player
         }
     };
-
-    public static void nextArea(MapArea nextArea) {
-        nextArea.startLevel();
-    }
 
 }

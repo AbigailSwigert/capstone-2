@@ -6,6 +6,7 @@ abstract class MapArea {
     int maxLevels = 5;
     int levelsCompleted = 0;
     int playerReply;
+    MapArea nextArea;
 
     public void completeLevel() {
         this.levelsCompleted += 1;
@@ -28,4 +29,8 @@ abstract class MapArea {
         System.out.println("You have survived " + levelsCompleted + " days in the " + areaName + ". Congratulations on winning the game.");
         System.exit(0);
     };
+
+    public static void nextArea(MapArea nextArea) {
+        nextArea.startLevel();
+    }
 }

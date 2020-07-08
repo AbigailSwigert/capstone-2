@@ -13,6 +13,7 @@ public class NonPlayerCharacter extends Character {
         this.name = name;
         this.species = species;
         this.isAlive = isAlive;
+        this.textColor = textColor;
     }
 
     // NPCs
