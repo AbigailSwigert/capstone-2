@@ -5,6 +5,7 @@ abstract class MapArea {
     NonPlayerCharacter areaCompanion;
     int maxLevels = 5;
     int levelsCompleted = 0;
+    int playerReply;
 
     public void completeLevel() {
         this.levelsCompleted += 1;
