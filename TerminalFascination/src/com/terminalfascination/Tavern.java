@@ -144,7 +144,7 @@ public class Tavern extends MapArea {
                     break;
                 case 3:
                     System.out.println(player.textColor + "\nYou: What's up with the comedian?" + Character.RESET);
-                    System.out.println(NonPlayerCharacter.AAYLEPHUR.textColor + "\nAaylephur: That's Adametes, he does stand-up comedy here on clear nights, but I don't know much about him, you should ask the Princess about him, he's a close friend of hers. Or you could talk to him yourself, his set is ending soon." + Character.RESET);
+                    System.out.println(NonPlayerCharacter.AAYLEPHUR.textColor + "\nAaylephur: That's Adametes, he does stand-up comedy here on clear days, but I don't know much about him, you should ask the Princess about him, he's a close friend of hers. Or you could talk to him yourself, his set is ending soon." + Character.RESET);
                     break;
                 case 4:
                     System.out.println("\nYou begin to rise from your seat but stop short when Aaylephur leans towards you and begins to speak quitely.");
@@ -152,6 +152,8 @@ public class Tavern extends MapArea {
                     System.out.println("\nAaylephur winks at you and goes back to work behind the counter. As you walk away from the bar you feel her black shark-like eyes staring at you. You turn to look, thinking you must be imagining it, but she's staring right at you smiling a sharp toothy grin. You can't tell if it's a bad sign, or if she's just happy she might get some kind of commission from you.");
                     sitSomewhere();
                     break inputLoop;
+                default:
+                    System.out.println("Invalid input");
             }
         }
     }
@@ -161,22 +163,37 @@ public class Tavern extends MapArea {
         System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nHey stranger, I'm Jessica, the Princess of this Kingdom. What's your name?" + Character.RESET);
         System.out.println(player.textColor + "\nYou: " + player.name + Character.RESET);
         System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nPrincess Jessica: It's nice to meet you " + player.name + ". What brings you to our Kingdom in a time of war?" + Character.RESET);
+        continueGame();
         System.out.println(player.textColor + "\nYou: A time of war?" + Character.RESET);
         System.out.println("\nThe Princess looks surprised for a moment.");
         System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nPrincess Jessica: Oh, you didn't know? Didn't you pass any " + Species.KRYSY.speciesName + " on your way here? Which direction did you come from?" + Character.RESET);
         System.out.println(player.textColor + "\nYou: Actually, I don't remember..." + Character.RESET);
-        System.out.println("\nPanic starts to set in as you realize you truly don't remember coming here. The only thing you can remember is spotting " + this.areaName + " in the distance. Well you can remember your name, that's a good sign...right?");
-        System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nPrincess Jessica: Well, just to get you up to speed, we're at war with the " + Species.KRYSY.speciesName + ". They're currently swarming throughout the Kingdom, though today happens to be a rare clear day. Likely they're regrouping right outside our borders. We're always looking for new soldiers to help end it once and for all, if you're up for it. Anyway, my friend is gonna finish his set soon then we're heading out. Come see me at the Royal Court sometime if you're looking to help." + Character.RESET);
+        System.out.println("\nPanic starts to set in as you realize you truly don't remember coming to this Kingdom. The only thing you can remember is spotting " + this.areaName + " in the distance. Well you can remember your name too, that's a good sign...right?");
+        continueGame();
+        System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nPrincess Jessica: Well, just to get you up to speed, we're at war with the " + Species.KRYSY.speciesName + ". They're currently swarming throughout the Kingdom, though today happens to be a rare clear day. Likely they're regrouping right outside our borders. We're always looking for new soldiers to help end this war once and for all, if you're up for it. Anyway, my friend is gonna finish his set soon then we're heading out. Come see me at the Royal Court sometime if you're looking to help." + Character.RESET);
         System.out.println("\nPrincess Jessica goes back to sit down at her own table and waits for her friend's set to finish up. You realize you never got the chance to ask her who/what the " + Species.KRYSY.speciesName + " even are. You'll have to remember to do that if you choose to go see her at the Royal Court.");
         sitSomewhere();
     }
 
     public void followCrition() {
-        System.out.println("Following mysterious figure");
+        System.out.println("\nYou follow the mysterious figure out the door and into the town. The sun is beginning to set so you worry about being able to stay close enough to see his dark figure, without him knowing you're there. You seem to do a fairly good job, as you manage not to lose him through the winding alleyways of the town and make your way into the town square. As he reaches a well in the center of the town square you seem him begin to turn, so you slink back around a corner to keep from being seen. You wait a few seconds and peak around the corner to see he's disappeared.");
+        completeLevel();
+        UndergroundTunnels.theUndergroundTunnels.startLevel();
     }
 
     public void talkToAdametes() {
-        System.out.println("Talking to Adametes.");
+        System.out.println("\nYou make your way over to Adametes, just as his friends leave.");
+        System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Oh it's the " + player.species.speciesName + " from earlier! Sorry to call you out like that man." + Character.RESET);
+        System.out.println(player.textColor + "\nYou: Oh, don't worry about it, I'm " + player.name + " by the way. Do you know who that guy in the shadows was? Does he come to your shows often?" + Character.RESET);
+        System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Never seen him before, and that usually means he's a drifter, like yourself, or that pesky shapeshifter that lives underground. He's constantly getting drunk and shifting into a dragon to play pranks. More than once, he's shifted into the Queen and walked right into the Royal Vault and robbed us in broad daylight. Princess Jessica can't figure out how he's even getting into the castle, but I'm convinced there are tunnels below the castle, it would explain everything." + Character.RESET);
+        System.out.println(player.textColor + "\nYou: You guys don't know how to get into the tunnels?" + Character.RESET);
+        System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Nope, I managed to follow him to the town square a few times, but once I rounded the corner, he had just disappeared. So the entrance has to be there somewhere. I spent a few weeks searching but turned up nothing by the time this war started. Now there are more pressing matters." + Character.RESET);
+        continueGame();
+        System.out.println(player.textColor + "\nYou: Well just because you lost him in the town square doesn't mean that there's some secret entrance there, he could have turned into something so small that you couldn't see him anymore. Like a fly." + Character.RESET);
+        System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Ah, come on, don't do me like that man. I thought I was really on to something there, I refuse to believe he's just been turning into a bug all this time! Anyway, it's getting late and you should find somewhere safe to stay. Today was a clear day, but the " + Species.KRYSY.speciesName + " aren't likely to give us a full day and night to recuperate before their next attack. You can stay at my Cottage in the woods near the castle if you's like." + Character.RESET);
+        System.out.println(player.textColor + "\nYou: Wow, that's very generous. I'm going to do a bit more exploring in the town before nightfall, but I may take you up on your offer." + Character.RESET);
+        System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Sounds good, just don't go to that Abandoned Castle across the lake, I know a lot of drifters like yourself go there to loot it now that the Lord of the land has been cast out, not that I think you're a bandit of course! But it's safest to stay away, since the war started some of the bandits that have gone in have never come back. We think some " + Species.KRYSY.speciesName + " are holed up there but haven't found enough proof to go and storm it." + Character.RESET);
+        nextArea();
     }
 
     public void sitNearCrition() {
@@ -197,15 +214,14 @@ public class Tavern extends MapArea {
                 case 2:
                     talkToAdametes();
                     break inputLoop;
+                default:
+                    System.out.println("Invalid input");
             }
         }
     }
 
     public void completeLevel(){
         this.levelsCompleted += 1;
-        if (this.levelsCompleted >= this.maxLevels) {
-            this.finishStory(); // switch to next area after taking input from player
-        }
     };
 
 }

@@ -6,7 +6,6 @@ abstract class MapArea {
     int maxLevels = 5;
     int levelsCompleted = 0;
     int playerReply;
-    MapArea nextArea;
 
     public void completeLevel() {
         this.levelsCompleted += 1;
@@ -30,7 +29,34 @@ abstract class MapArea {
         System.exit(0);
     };
 
-    public static void nextArea(MapArea nextArea) {
-        nextArea.startLevel();
+    public void nextArea() {
+        System.out.println("\nWhere would you like to go?\n1. The Royal Court\n2. The Abandoned Castle\n3. The Underground Tunnels\n4. The Woods");
+        inputLoop: while (true) {
+            this.playerReply = Game.playerInput.nextInt();
+            switch (playerReply) {
+                case 0:
+                    System.exit(0);
+                case 1:
+                    this.completeLevel();
+                    RoyalCourt.theCourt.startLevel();
+                    break inputLoop;
+                case 2:
+                    this.completeLevel();
+                    AbandonedCastle.theAbandonedCastle.startLevel();
+                    break inputLoop;
+                case 3:
+                    this.completeLevel();
+                    UndergroundTunnels.theUndergroundTunnels.startLevel();
+                    break inputLoop;
+                case 4:
+                    this.completeLevel();
+                    Woods.theWoods.startLevel();
+                    break inputLoop;
+                default:
+                    System.out.println("Invalid input");
+            }
+        }
     }
+
+
 }
