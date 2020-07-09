@@ -1,6 +1,6 @@
 package com.terminalfascination;
 
-public class NonPlayerCharacter extends Character {
+public class NonPlayerCharacter extends Character { // Inheritance
     public boolean isAlive;
 
     private NonPlayerCharacter(String name, Species species, String textColor) {

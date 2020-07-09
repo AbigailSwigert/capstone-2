@@ -1,11 +1,6 @@
 package com.terminalfascination;
 
-import com.sun.jdi.CharType;
-
-import javax.sound.midi.Soundbank;
-
 public class Tavern extends MapArea {
-    Player player = Player.getInstance(null, null);
 
     private static Tavern tavern_instance = null;
 
@@ -21,11 +16,11 @@ public class Tavern extends MapArea {
 
     public static final Tavern theTavern = Tavern.getInstance("The Watery Grave");
 
-    public void startLevel(){
+    public void enterArea(){
         if(this.levelsCompleted >= this.maxLevels){
-            System.out.println("You may not go back to " + areaName + " at this time.");
+            System.out.println("\nYou may not go back to " + areaName + " at this time.");
         } else {
-            System.out.println("Welcome to Terminal Fascination, are you ready to start the game?\n1. Yes\n2. Not yet\nPress 0 to quit the game at anytime");
+            System.out.println("\nWelcome to Terminal Fascination, are you ready to start the game?\n1. Yes\n2. Not yet\nPress 0 to quit the game at anytime");
             inputLoop: while(true) {
                 this.playerReply = Game.playerInput.nextInt();
                 switch (this.playerReply) {
@@ -43,7 +38,8 @@ public class Tavern extends MapArea {
     };
 
     public void playerIntro() {
-        System.out.println("-----------------Terminal Fascination-----------------");
+        clearScreen();
+        System.out.println(Character.RESET + "-----------------Terminal Fascination-----------------");
         System.out.println("Hello traveler, what is your name?");
         Game.playerInput.nextLine();
         player.name = Game.playerInput.nextLine();
@@ -70,25 +66,12 @@ public class Tavern extends MapArea {
             }
         }
         System.out.println("\n" + player.name + " the " + player.species.speciesName + ", this will be a fun game.\n");
+        continueGame();
         tavernIntro();
     };
 
-    public void continueGame() {
-        System.out.println("\nContinue?\n1. Continue\n2. Quit game");
-        inputLoop: while (true) {
-            this.playerReply = Game.playerInput.nextInt();
-            switch (this.playerReply) {
-                case 0:
-                    System.exit(0);
-                case 1:
-                    break inputLoop;
-                default:
-                    System.out.println("Invalid command, please enter 1 to continue or 0 to quit the game.");
-            }
-        }
-    }
-
     public void tavernIntro() {
+        clearScreen();
         System.out.println("------------------------Intro------------------------");
         System.out.println("You find yourself treking through an unfamiliar kingdom that appears war torn and nearly deserted. The only activity you can see appears to be coming from a fairly lively tavern down the road. You are feeling a bit hungry and would like the chance to rest your legs, so you decide to head that way. Upon reaching the door to the tavern, you spot an old sign just overhead marked with a flowing blue script that reads '" + this.areaName + "' and decide to enter.");
         continueGame();
@@ -124,6 +107,7 @@ public class Tavern extends MapArea {
     }
 
     public void sitAtBar() {
+        clearScreen();
         System.out.println("\nYou walk over to the bar and sit at one of the bar stools only to discover that the cushion on the stool is doing nothing to make the seat any softer. Just as you're accepting your fate at the world's most uncomfortable stool, the barkeep walks over to you.\n");
         System.out.println(NonPlayerCharacter.AAYLEPHUR.textColor + "Hi, I'm Aaylephur. You look new around here, whatcha lookin' for?" + Character.RESET);
         inputLoop: while (true) {
@@ -159,6 +143,7 @@ public class Tavern extends MapArea {
     }
 
     public void sitNearPrincess() {
+        clearScreen();
         System.out.println("\nYou make your way over to a table near the woman in the tiara, and sit down with your chair at the perfect angle to watch her without it being obvious that that's what you're doing. At least, that's what you thought, but now she's staring at you.\nOh no, now she's getting up.\nShe's making her way over to you.\nYou're not as slick as you thought...");
         System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nHey stranger, I'm Jessica, the Princess of this Kingdom. What's your name?" + Character.RESET);
         System.out.println(player.textColor + "\nYou: " + player.name + Character.RESET);
@@ -176,12 +161,15 @@ public class Tavern extends MapArea {
     }
 
     public void followCrition() {
+        clearScreen();
         System.out.println("\nYou follow the mysterious figure out the door and into the town. The sun is beginning to set so you worry about being able to stay close enough to see his dark figure, without him knowing you're there. You seem to do a fairly good job, as you manage not to lose him through the winding alleyways of the town and make your way into the town square. As he reaches a well in the center of the town square you seem him begin to turn, so you slink back around a corner to keep from being seen. You wait a few seconds and peak around the corner to see he's disappeared.");
+        continueGame();
         completeLevel();
-        UndergroundTunnels.theUndergroundTunnels.startLevel();
+        UndergroundTunnels.theUndergroundTunnels.enterArea();
     }
 
     public void talkToAdametes() {
+        clearScreen();
         System.out.println("\nYou make your way over to Adametes, just as his friends leave.");
         System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Oh it's the " + player.species.speciesName + " from earlier! Sorry to call you out like that man." + Character.RESET);
         System.out.println(player.textColor + "\nYou: Oh, don't worry about it, I'm " + player.name + " by the way. Do you know who that guy in the shadows was? Does he come to your shows often?" + Character.RESET);
@@ -197,6 +185,7 @@ public class Tavern extends MapArea {
     }
 
     public void sitNearCrition() {
+        clearScreen();
         System.out.println("\nYou make your way over to the table nearest the hooded figure, sitting across from the farmer already at the table. You forego any greeting thinking the farmer will ignore you and continue to watch the comedian. You are wrong.");
         System.out.println(NonPlayerCharacter.KEVON.textColor + "\nHey Man! I'm Kevon, it's spelled K-E-V-O-N but pronounced like 'Kevin.'" + Character.RESET);
         System.out.println(player.textColor + "\nYou: Why?" + Character.RESET);
