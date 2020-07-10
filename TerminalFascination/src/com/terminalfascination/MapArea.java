@@ -7,10 +7,9 @@ abstract class MapArea {
     int levelsCompleted = 0;
     int playerReply;
 
-    Player player = Player.getInstance(null, null);
-
     public void completeLevel() {
         this.levelsCompleted += 1;
+        PlayerStats.allCompletedLevels.put(this.areaName, levelsCompleted);
         if(this.levelsCompleted >= this.maxLevels) {
             this.finishStory();
         }
@@ -24,11 +23,6 @@ abstract class MapArea {
         } else {
             System.out.println("You have entered " + areaName + ", best of luck.");
         }
-    };
-
-    public void finishStory(){
-        System.out.println("You have survived " + this.levelsCompleted + " days in the " + this.areaName + ". Congratulations on winning the game.");
-        System.exit(0);
     };
 
     public void nextArea() {
@@ -74,6 +68,25 @@ abstract class MapArea {
             }
         }
     }
+
+    public void finishStory(){
+        System.out.println("You have survived " + this.levelsCompleted + " days in the " + this.areaName + ". Congratulations on winning the game.");
+        System.out.println("\n0. End Game\n1. See player stats\n2. Show Game credits"); // Add credits
+        inputLoop: while (true) {
+            this.playerReply = Game.playerInput.nextInt();
+            switch (playerReply) {
+                case 0:
+                    System.exit(0);
+                    break inputLoop;
+                case 1:
+                    PlayerStats.printPlayerStats();
+                case 2:
+                    Credits.printGameCredits();
+                default:
+                    System.out.println("Invalid input");
+            }
+        }
+    };
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");

@@ -17,6 +17,7 @@ public class Tavern extends MapArea {
     public static final Tavern theTavern = Tavern.getInstance("The Watery Grave");
 
     public void enterArea(){
+        PlayerStats.allCompletedLevels.put(theTavern.areaName, levelsCompleted);
         if(this.levelsCompleted >= this.maxLevels){
             System.out.println("\nYou may not go back to " + areaName + " at this time.");
         } else {
@@ -42,30 +43,30 @@ public class Tavern extends MapArea {
         System.out.println(Character.RESET + "-----------------Terminal Fascination-----------------");
         System.out.println("Hello traveler, what is your name?");
         Game.playerInput.nextLine();
-        player.name = Game.playerInput.nextLine();
-        System.out.println("\nHuh, " + player.name + ", interesting. What species would you like to play as?\n1. Human\n2. Ursataur\n3. Merperson\n4. Shapeshifter");
+        Game.player.name = Game.playerInput.nextLine();
+        System.out.println("\nHuh, " + Game.player.name + ", interesting. What species would you like to play as?\n1. Human\n2. Ursataur\n3. Merperson\n4. Shapeshifter");
         inputLoop: while(true) {
             this.playerReply = Game.playerInput.nextInt();
             switch (this.playerReply) {
                 case 0:
                     System.exit(0);
                 case 1:
-                    this.player.species = Species.HUMAN;
+                    Game.player.species = Species.HUMAN;
                     break inputLoop;
                 case 2:
-                    this.player.species = Species.URSATAUR;
+                    Game.player.species = Species.URSATAUR;
                     break inputLoop;
                 case 3:
-                    this.player.species = Species.MERPERSON;
+                    Game.player.species = Species.MERPERSON;
                     break inputLoop;
                 case 4:
-                    this.player.species = Species.SHAPESHIFTER;
+                    Game.player.species = Species.SHAPESHIFTER;
                     break inputLoop;
                 default:
                     System.out.println("Invalid input");
             }
         }
-        System.out.println("\n" + player.name + " the " + player.species.speciesName + ", this will be a fun game.\n");
+        System.out.println("\n" + Game.player.name + " the " + Game.player.species.speciesName + ", this will be a fun game.\n");
         continueGame();
         tavernIntro();
     };
@@ -117,17 +118,17 @@ public class Tavern extends MapArea {
                 case 0:
                     System.exit(0);
                 case 1:
-                    System.out.println(player.textColor + "\nYou: Who's that woman in the Tiara?" + Character.RESET);
+                    System.out.println(Game.player.textColor + "\nYou: Who's that woman in the Tiara?" + Character.RESET);
                     System.out.println(NonPlayerCharacter.AAYLEPHUR.textColor + "\nAaylephur: That's Princess Jessica, she lives in that massive castle down the road." + Character.RESET);
-                    System.out.println(player.textColor + "\nYou: I saw it on my way into town, but I didn't think anyone who lived there would come all the way out to some hole in the wall tavern." + Character.RESET);
+                    System.out.println(Game.player.textColor + "\nYou: I saw it on my way into town, but I didn't think anyone who lived there would come all the way out to some hole in the wall tavern." + Character.RESET);
                     System.out.println(NonPlayerCharacter.AAYLEPHUR.textColor + "\nAaylephur: Watch what you say, The Watery Grave is my tavern. Princess Jessica comes down here to see her friend perform." + Character.RESET);
                     break;
                 case 2:
-                    System.out.println(player.textColor + "\nYou: Who's that person in the back seemingly producing their own shadows?" + Character.RESET);
+                    System.out.println(Game.player.textColor + "\nYou: Who's that person in the back seemingly producing their own shadows?" + Character.RESET);
                     System.out.println(NonPlayerCharacter.AAYLEPHUR.textColor + "\nAaylephur: No idea, honestly he's giving me the creeps so I'm just avoiding him." + Character.RESET);
                     break;
                 case 3:
-                    System.out.println(player.textColor + "\nYou: What's up with the comedian?" + Character.RESET);
+                    System.out.println(Game.player.textColor + "\nYou: What's up with the comedian?" + Character.RESET);
                     System.out.println(NonPlayerCharacter.AAYLEPHUR.textColor + "\nAaylephur: That's Adametes, he does stand-up comedy here on clear days, but I don't know much about him, you should ask the Princess about him, he's a close friend of hers. Or you could talk to him yourself, his set is ending soon." + Character.RESET);
                     break;
                 case 4:
@@ -146,13 +147,13 @@ public class Tavern extends MapArea {
         clearScreen();
         System.out.println("\nYou make your way over to a table near the woman in the tiara, and sit down with your chair at the perfect angle to watch her without it being obvious that that's what you're doing. At least, that's what you thought, but now she's staring at you.\nOh no, now she's getting up.\nShe's making her way over to you.\nYou're not as slick as you thought...");
         System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nHey stranger, I'm Jessica, the Princess of this Kingdom. What's your name?" + Character.RESET);
-        System.out.println(player.textColor + "\nYou: " + player.name + Character.RESET);
-        System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nPrincess Jessica: It's nice to meet you " + player.name + ". What brings you to our Kingdom in a time of war?" + Character.RESET);
+        System.out.println(Game.player.textColor + "\nYou: " + Game.player.name + Character.RESET);
+        System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nPrincess Jessica: It's nice to meet you " + Game.player.name + ". What brings you to our Kingdom in a time of war?" + Character.RESET);
         continueGame();
-        System.out.println(player.textColor + "\nYou: A time of war?" + Character.RESET);
+        System.out.println(Game.player.textColor + "\nYou: A time of war?" + Character.RESET);
         System.out.println("\nThe Princess looks surprised for a moment.");
         System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nPrincess Jessica: Oh, you didn't know? Didn't you pass any " + Species.KRYSY.speciesName + " on your way here? Which direction did you come from?" + Character.RESET);
-        System.out.println(player.textColor + "\nYou: Actually, I don't remember..." + Character.RESET);
+        System.out.println(Game.player.textColor + "\nYou: Actually, I don't remember..." + Character.RESET);
         System.out.println("\nPanic starts to set in as you realize you truly don't remember coming to this Kingdom. The only thing you can remember is spotting " + this.areaName + " in the distance. Well you can remember your name too, that's a good sign...right?");
         continueGame();
         System.out.println(NonPlayerCharacter.PRINCESS_JESSICA.textColor + "\nPrincess Jessica: Well, just to get you up to speed, we're at war with the " + Species.KRYSY.speciesName + ". They're currently swarming throughout the Kingdom, though today happens to be a rare clear day. Likely they're regrouping right outside our borders. We're always looking for new soldiers to help end this war once and for all, if you're up for it. Anyway, my friend is gonna finish his set soon then we're heading out. Come see me at the Royal Court sometime if you're looking to help." + Character.RESET);
@@ -171,15 +172,15 @@ public class Tavern extends MapArea {
     public void talkToAdametes() {
         clearScreen();
         System.out.println("\nYou make your way over to Adametes, just as his friends leave.");
-        System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Oh it's the " + player.species.speciesName + " from earlier! Sorry to call you out like that man." + Character.RESET);
-        System.out.println(player.textColor + "\nYou: Oh, don't worry about it, I'm " + player.name + " by the way. Do you know who that guy in the shadows was? Does he come to your shows often?" + Character.RESET);
+        System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Oh it's the " + Game.player.species.speciesName + " from earlier! Sorry to call you out like that man." + Character.RESET);
+        System.out.println(Game.player.textColor + "\nYou: Oh, don't worry about it, I'm " + Game.player.name + " by the way. Do you know who that guy in the shadows was? Does he come to your shows often?" + Character.RESET);
         System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Never seen him before, and that usually means he's a drifter, like yourself, or that pesky shapeshifter that lives underground. He's constantly getting drunk and shifting into a dragon to play pranks. More than once, he's shifted into the Queen and walked right into the Royal Vault and robbed us in broad daylight. Princess Jessica can't figure out how he's even getting into the castle, but I'm convinced there are tunnels below the castle, it would explain everything." + Character.RESET);
-        System.out.println(player.textColor + "\nYou: You guys don't know how to get into the tunnels?" + Character.RESET);
+        System.out.println(Game.player.textColor + "\nYou: You guys don't know how to get into the tunnels?" + Character.RESET);
         System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Nope, I managed to follow him to the town square a few times, but once I rounded the corner, he had just disappeared. So the entrance has to be there somewhere. I spent a few weeks searching but turned up nothing by the time this war started. Now there are more pressing matters." + Character.RESET);
         continueGame();
-        System.out.println(player.textColor + "\nYou: Well just because you lost him in the town square doesn't mean that there's some secret entrance there, he could have turned into something so small that you couldn't see him anymore. Like a fly." + Character.RESET);
+        System.out.println(Game.player.textColor + "\nYou: Well just because you lost him in the town square doesn't mean that there's some secret entrance there, he could have turned into something so small that you couldn't see him anymore. Like a fly." + Character.RESET);
         System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Ah, come on, don't do me like that man. I thought I was really on to something there, I refuse to believe he's just been turning into a bug all this time! Anyway, it's getting late and you should find somewhere safe to stay. Today was a clear day, but the " + Species.KRYSY.speciesName + " aren't likely to give us a full day and night to recuperate before their next attack. You can stay at my Cottage in the woods near the castle if you's like." + Character.RESET);
-        System.out.println(player.textColor + "\nYou: Wow, that's very generous. I'm going to do a bit more exploring in the town before nightfall, but I may take you up on your offer." + Character.RESET);
+        System.out.println(Game.player.textColor + "\nYou: Wow, that's very generous. I'm going to do a bit more exploring in the town before nightfall, but I may take you up on your offer." + Character.RESET);
         System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Sounds good, just don't go to that Abandoned Castle across the lake, I know a lot of drifters like yourself go there to loot it now that the Lord of the land has been cast out, not that I think you're a bandit of course! But it's safest to stay away, since the war started some of the bandits that have gone in have never come back. We think some " + Species.KRYSY.speciesName + " are holed up there but haven't found enough proof to go and storm it." + Character.RESET);
         nextArea();
     }
@@ -188,7 +189,7 @@ public class Tavern extends MapArea {
         clearScreen();
         System.out.println("\nYou make your way over to the table nearest the hooded figure, sitting across from the farmer already at the table. You forego any greeting thinking the farmer will ignore you and continue to watch the comedian. You are wrong.");
         System.out.println(NonPlayerCharacter.KEVON.textColor + "\nHey Man! I'm Kevon, it's spelled K-E-V-O-N but pronounced like 'Kevin.'" + Character.RESET);
-        System.out.println(player.textColor + "\nYou: Why?" + Character.RESET);
+        System.out.println(Game.player.textColor + "\nYou: Why?" + Character.RESET);
         System.out.println(NonPlayerCharacter.KEVON.textColor + "\nKevon: My mom wanted to name me Devon, and my dad wanted to name me Kenny. They compromised on Kevon. Anyway, how are you enjoying Adametes' routine?" + Character.RESET);
         System.out.println("\nJust then, you notice the mysterious figure get up to leave. You try to follow him with your eys, but he seems to have timed his exit with the end of Adametes' routine, and all of the patrons are now giving him a standing ovation. Apparently you should have paid more attention to the show, people loved it. The perpetual shadows dripping off the mysterious figure seem to be helping him slither through the crowd, cause you had just about lost him when you noticed the door to the tavern open. The mysterious figure slips though the door, as Adametes greets his friends in the crowd.");
         inputLoop: while (true) {
