@@ -17,7 +17,6 @@ public class Tavern extends MapArea {
     public static final Tavern theTavern = Tavern.getInstance("The Watery Grave");
 
     public void enterArea(){
-        PlayerStats.allCompletedLevels.put(theTavern.areaName, levelsCompleted);
         if(this.levelsCompleted >= this.maxLevels){
             System.out.println("\nYou may not go back to " + areaName + " at this time.");
         } else {
@@ -133,7 +132,7 @@ public class Tavern extends MapArea {
                     break;
                 case 4:
                     System.out.println("\nYou begin to rise from your seat but stop short when Aaylephur leans towards you and begins to speak quitely.");
-                    System.out.println(NonPlayerCharacter.AAYLEPHUR.textColor + "\nHey, just a second, you look like the type who pass through here a lot. So in case you're looking for some quick loot, check out the old Abandoned Castle just across the lake. The Lord who used to live there was cast out of the Kingdom years ago, bandits loot it all the time but I hear it's still full of great stuff! Just remember who sent you." + Character.RESET);
+                    System.out.println(NonPlayerCharacter.AAYLEPHUR.textColor + "\nAaylephur: Hey, just a second, you look like the type who pass through here a lot. So in case you're looking for some quick loot, check out the old Abandoned Castle just across the lake. The Lord who used to live there was cast out of the Kingdom years ago, bandits loot it all the time but I hear it's still full of great stuff! Just remember who sent you." + Character.RESET);
                     System.out.println("\nAaylephur winks at you and goes back to work behind the counter. As you walk away from the bar you feel her black shark-like eyes staring at you. You turn to look, thinking you must be imagining it, but she's staring right at you smiling a sharp toothy grin. You can't tell if it's a bad sign, or if she's just happy she might get some kind of commission from you.");
                     sitSomewhere();
                     break inputLoop;
@@ -174,12 +173,12 @@ public class Tavern extends MapArea {
         System.out.println("\nYou make your way over to Adametes, just as his friends leave.");
         System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Oh it's the " + Game.player.species.speciesName + " from earlier! Sorry to call you out like that man." + Character.RESET);
         System.out.println(Game.player.textColor + "\nYou: Oh, don't worry about it, I'm " + Game.player.name + " by the way. Do you know who that guy in the shadows was? Does he come to your shows often?" + Character.RESET);
-        System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Never seen him before, and that usually means he's a drifter, like yourself, or that pesky shapeshifter that lives underground. He's constantly getting drunk and shifting into a dragon to play pranks. More than once, he's shifted into the Queen and walked right into the Royal Vault and robbed us in broad daylight. Princess Jessica can't figure out how he's even getting into the castle, but I'm convinced there are tunnels below the castle, it would explain everything." + Character.RESET);
+        System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Never seen him before, and that usually means he's a drifter, like yourself, or that pesky shapeshifter that lives underground. He's constantly getting drunk and shifting into a dragon to play pranks. More than once, he's shifted into the Queen and walked right into the Royal Vault and robbed us in broad daylight. Princess Jessica can't figure out how he's even getting in, but I'm convinced there are tunnels below the castle, it would explain everything." + Character.RESET);
         System.out.println(Game.player.textColor + "\nYou: You guys don't know how to get into the tunnels?" + Character.RESET);
         System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Nope, I managed to follow him to the town square a few times, but once I rounded the corner, he had just disappeared. So the entrance has to be there somewhere. I spent a few weeks searching but turned up nothing by the time this war started. Now there are more pressing matters." + Character.RESET);
         continueGame();
         System.out.println(Game.player.textColor + "\nYou: Well just because you lost him in the town square doesn't mean that there's some secret entrance there, he could have turned into something so small that you couldn't see him anymore. Like a fly." + Character.RESET);
-        System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Ah, come on, don't do me like that man. I thought I was really on to something there, I refuse to believe he's just been turning into a bug all this time! Anyway, it's getting late and you should find somewhere safe to stay. Today was a clear day, but the " + Species.KRYSY.speciesName + " aren't likely to give us a full day and night to recuperate before their next attack. You can stay at my Cottage in the woods near the castle if you's like." + Character.RESET);
+        System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Ah, come on, don't do me like that man. I thought I was really on to something there, I refuse to believe he's just been turning into a bug all this time! Anyway, it's getting late and you should find somewhere safe to stay. Today was a clear day, but the " + Species.KRYSY.speciesName + " aren't likely to give us a full day and night to recuperate before their next attack. You can stay at my Cottage in the woods near the castle if you'd like." + Character.RESET);
         System.out.println(Game.player.textColor + "\nYou: Wow, that's very generous. I'm going to do a bit more exploring in the town before nightfall, but I may take you up on your offer." + Character.RESET);
         System.out.println(NonPlayerCharacter.ADAMETES.textColor + "\nAdametes: Sounds good, just don't go to that Abandoned Castle across the lake, I know a lot of drifters like yourself go there to loot it now that the Lord of the land has been cast out, not that I think you're a bandit of course! But it's safest to stay away, since the war started some of the bandits that have gone in have never come back. We think some " + Species.KRYSY.speciesName + " are holed up there but haven't found enough proof to go and storm it." + Character.RESET);
         nextArea();
@@ -212,6 +211,7 @@ public class Tavern extends MapArea {
 
     public void completeLevel(){
         this.levelsCompleted += 1;
+        PlayerStats.allCompletedLevels.put(this.areaName, levelsCompleted);
     };
 
 }

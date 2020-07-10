@@ -26,8 +26,8 @@ abstract class PlayerStats {
 
     public static void printPlayerStats() {
         MapArea.clearScreen();
-        System.out.println(Character.RESET + "---------------------Player Stats---------------------");
-        System.out.println("Congratulations " + Game.player.name + ", you completed " + totalLevels.process(allCompletedLevels) + " levels of Terminal Fascination!");
+        System.out.println(Character.RESET + "\n---------------------Player Stats---------------------");
+        System.out.println("\nCongratulations " + Game.player.name + ", you completed " + totalLevels.process(allCompletedLevels) + " levels of Terminal Fascination!\n");
         printAllAreasCompletedLevels();
     }
 }

@@ -106,9 +106,29 @@ abstract class MapArea {
         }
     }
 
+    public void resetLevel() {
+        inputLoop: while (true) {
+            System.out.println("\n0. Quit game\n1. Reset level");
+            this.playerReply = Game.playerInput.nextInt();
+            switch (playerReply) {
+                case 0:
+                    System.exit(0);
+                case 1:
+                    this.enterArea();
+                    break inputLoop;
+                default:
+                    System.out.println("Invalid Input");
+            }
+        }
+    }
+
     public void finishStory(){
         System.out.println("You have survived " + this.levelsCompleted + " days in the " + this.areaName + ". Congratulations on winning the game.");
-        System.out.println("\n0. End Game\n1. See player stats\n2. Show Game credits"); // Add credits
+        endGameChoices();
+    };
+
+    public void endGameChoices() {
+        System.out.println("\n0. End Game\n1. See player stats\n2. Show Game credits");
         inputLoop: while (true) {
             this.playerReply = Game.playerInput.nextInt();
             switch (playerReply) {
@@ -117,13 +137,17 @@ abstract class MapArea {
                     break inputLoop;
                 case 1:
                     PlayerStats.printPlayerStats();
+                    System.out.println("\n0. End Game\n1. See player stats\n2. Show Game credits");
+                    break;
                 case 2:
                     Credits.printGameCredits();
+                    System.out.println("\n0. End Game\n1. See player stats\n2. Show Game credits");
+                    break;
                 default:
                     System.out.println("Invalid input");
             }
         }
-    };
+    }
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
