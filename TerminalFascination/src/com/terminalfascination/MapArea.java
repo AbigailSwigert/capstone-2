@@ -3,7 +3,7 @@ package com.terminalfascination;
 abstract class MapArea {
     String areaName;
     NonPlayerCharacter areaCompanion;
-    int maxLevels = 5;
+    int maxLevels = 4;
     int levelsCompleted = 0;
     int playerReply;
 
@@ -18,10 +18,27 @@ abstract class MapArea {
     public void enterArea(){
         if(this.levelsCompleted >= this.maxLevels){
             System.out.println("You may not go back to " + areaName + " at this time.");
-        } else if(this.levelsCompleted > 0){
-            System.out.println("You have returned to " + areaName + ".");
         } else {
-            System.out.println("You have entered " + areaName + ", best of luck.");
+            switch (levelsCompleted) {
+                case 0:
+                    this.startLevel1();
+                    break;
+                case 1:
+                    this.startLevel2();
+                    break;
+                case 2:
+                    this.startLevel3();
+                    break;
+                case 3:
+                    this.startLevel4();
+                    break;
+                case 4:
+                    this.finishStory();
+                    break;
+                default:
+                    System.out.println("There was an error in the number of levels completed in " + this.areaName + ", please restart your game.");
+                    System.exit(0);
+            }
         }
     };
 
@@ -69,6 +86,26 @@ abstract class MapArea {
         }
     }
 
+    public void leavePrompt() {
+        inputLoop: while (true) {
+            System.out.println("\n1. Continue\n2. Go somewhere else");
+            this.playerReply = Game.playerInput.nextInt();
+            switch (playerReply) {
+                case 0:
+                    System.exit(0);
+                case 1:
+                    completeLevel();
+                    this.enterArea();
+                    break inputLoop;
+                case 2:
+                    this.nextArea();
+                    break inputLoop;
+                default:
+                    System.out.println("Invalid input");
+            }
+        }
+    }
+
     public void finishStory(){
         System.out.println("You have survived " + this.levelsCompleted + " days in the " + this.areaName + ". Congratulations on winning the game.");
         System.out.println("\n0. End Game\n1. See player stats\n2. Show Game credits"); // Add credits
@@ -97,5 +134,4 @@ abstract class MapArea {
     public void startLevel2(){};
     public void startLevel3(){};
     public void startLevel4(){};
-    public void startLevel5(){};
 }

@@ -16,36 +16,10 @@ public class UndergroundTunnels extends MapArea {
         return undergroundTunnels_instance;
     }
 
-    public void enterArea() {
-        switch (levelsCompleted) {
-            case 0:
-                this.startLevel1();
-                break;
-            case 1:
-                this.startLevel2();
-                break;
-            case 2:
-                this.startLevel3();
-                break;
-            case 3:
-                this.startLevel4();
-                break;
-            case 4:
-                this.startLevel5();
-                break;
-            case 5:
-                this.finishStory();
-                break;
-            default:
-                System.out.println("There was an error in the number of levels completed in " + this.areaName + ", please restart your game.");
-                System.exit(0);
-        }
-    }
-
     public void startLevel1() {
         clearScreen();
         System.out.println("-------------Underground Tunnels Level 1-------------");
-        System.out.println("You stare into the empty town square wondering if trying to find the mysterious figure's hiding spot is even worth it right now, but something in your gut is telling you to examine the well at the square's center. Once you make your way over to the well you notice that the well bucket has been hoisted up and emptied of water already, but there's another rope reaching all the way down into the dark pit of the well. Seeing this, you think that this well must have two buckets, but you quickly scrap that idea upon the realization that the second rope is far thicker and sturdier than the one holding the bucket. The second rope is meant to hold far more weight. The weight of a human being, you realize, or at least something humanoid. You decide then, to repel down the rope into the well, worst case scenario you take a dip in a well, best case scenario you figure out who the mysterious figure is and what they're up to.");
+        System.out.println("\nYou stare into the empty town square wondering if trying to find the mysterious figure's hiding spot is even worth it right now, but something in your gut is telling you to examine the well at the square's center. Once you make your way over to the well you notice that the well bucket has been hoisted up and emptied of water already, but there's another rope reaching all the way down into the dark pit of the well. Seeing this, you think that this well must have two buckets, but you quickly scrap that idea upon the realization that the second rope is far thicker and sturdier than the one holding the bucket. The second rope is meant to hold far more weight. The weight of a human being, you realize, or at least something humanoid. You decide then, to repel down the rope into the well, worst case scenario you take a dip in a well, best case scenario you figure out who the mysterious figure is and what they're up to.");
         continueGame();
         System.out.println("\nYou make your way down the rope and into the well, careful not to give yourself rope burn. Once your boots dip into the water you decide to light a match to look around. This of course was very difficult to do, as you're holding all your weight up on a rope, but somehow you manage. As soon as the match lights, you see a tunnel opening to your right about a foot above the water level. You swing yourself over on the rope and land firmly inside the tunnel. The tunnel is not quite tall enough for you to stand at your full height, but wide enough for two people to walk side by side. A few yards in front of you, a light shines dimly from the right side of the tunnel. You think about turning around and climbing right back out of the well, but notice your feet are already taking you forward towards the light.");
         continueGame();
@@ -102,7 +76,7 @@ public class UndergroundTunnels extends MapArea {
     public void startLevel2(){
         clearScreen();
         System.out.println("-------------Underground Tunnels Level 2-------------");
-        System.out.println("You and Crition agree to watch each other's backs and go investigate the sound he believes to be a " + Species.KRYSY.speciesName + " that stumbled into the tunnels. Crition takes you down a tunnel to a side room, that appears to be an understocked royal armory. He definitely stole all the weapons from the castle, but that's the least of your worries right now. Crition pulls a set of throwing stars out of a drawer, and you start to wonder if this is all some ridiculous dream. Finally, you walk up to a weapons wall to choose one for yourself.");
+        System.out.println("\nYou and Crition agree to watch each other's backs and go investigate the sound he believes to be a " + Species.KRYSY.speciesName + " that stumbled into the tunnels. Crition takes you down a tunnel to a side room, that appears to be an understocked royal armory. He definitely stole all the weapons from the castle, but that's the least of your worries right now. Crition pulls a set of throwing stars out of a drawer, and you start to wonder if this is all some ridiculous dream. Finally, you walk up to a weapons wall to choose one for yourself.");
         System.out.println(NonPlayerCharacter.CRITION.textColor + "\nCrition: What are you doing?" + Character.RESET);
         System.out.println(Game.player.textColor + "\nYou: Picking a weapon so we can deal with what ever is in the tunnels." + Character.RESET);
         System.out.println(NonPlayerCharacter.CRITION.textColor + "\nCrition: No, no, you can have this shield, that's it. I've got to keep the rest of these babies in prime condition, it's all about the resale value." + Character.RESET);
@@ -133,7 +107,7 @@ public class UndergroundTunnels extends MapArea {
     public void startLevel3(){
         clearScreen();
         System.out.println("-------------Underground Tunnels Level 3-------------");
-        System.out.println("After see what's going on on the other side of that grate, you decided you'd need an actual weapon before making any feeble attempt at joining the fray. You ran to the weapons room and blindly grabbed whatever was closest to you on the wall, which turned out to be a chainsaw. Seriously, what is it with this place? Now, you're on your way back to the room you left Crition in, wondering why you didn't pay more attention to the weapon you were grabbing. It's easy to find your way back to the room as the sounds of the fight are much louder now and easy to follow. As you pass through the doorway, you realize chaos has erupted in the room.");
+        System.out.println("\nAfter see what's going on on the other side of that grate, you decided you'd need an actual weapon before making any feeble attempt at joining the fray. You ran to the weapons room and blindly grabbed whatever was closest to you on the wall, which turned out to be a chainsaw. Seriously, what is it with this place? Now, you're on your way back to the room you left Crition in, wondering why you didn't pay more attention to the weapon you were grabbing. It's easy to find your way back to the room as the sounds of the fight are much louder now and easy to follow. As you pass through the doorway, you realize chaos has erupted in the room.");
         System.out.println("\nCrition is pinned in a corner by what must be a 7ft tall rat-like creature standing on its hind legs, a " + Species.KRYSY.speciesName + ". In its up raised hand (paw?) you see a long sword, preparing to be brought down on Crition's head. You start the chainsaw and it's roar is so loud that it can be heard over the clanking of weapons, and all in the room, " + Species.KRYSY.speciesName + " and Royal Guard alike, turn to look at you.");
         System.out.println("\nWhat will you do now?\n1. Play it cool\n2. Act like a crazy person\n3. Rush the room");
         inputLoop: while (true) {
@@ -167,64 +141,43 @@ public class UndergroundTunnels extends MapArea {
         System.out.println(NonPlayerCharacter.CRITION.textColor + "\nCrition: I told you! I was pretty much the last person left in the kingdom that knew about the tunnels! Now the whole castle's gonna know and be using 'em. Taking all my stuff. Kicking me out." + Character.RESET);
         continueGame();
         System.out.println("\nJust then one of the guards who had managed to come out of the altercation unscathed walked up and began speaking with Crition. They seemed to be trying to come to an agreement about the guards staying there while they healed. You knew you had nothing to offer the conversation so you left the room in search of medical supplies for the wounded. As you wandered through the corridors you realized that this was a prime opportunity to grab a more realistic weapon, and made your way back to the weapons room. You're starting to get to know these tunnels well, you realize, as you were quickly able to find your way back. When you get into the room you immediately put the chainsaw back where you got it, and grab a simple short sword.");
-        inputLoop: while (true) {
-            System.out.println("\n1. Continue\n2. Go somewhere else");
-            this.playerReply = Game.playerInput.nextInt();
-            switch (playerReply) {
-                case 0:
-                    System.exit(0);
-                case 1:
-                    completeLevel();
-                    this.startLevel4();
-                    break inputLoop;
-                case 2:
-                    this.nextArea();
-                    break inputLoop;
-                default:
-                    System.out.println("Invalid input");
-            }
-        }
+        leavePrompt();
     };
 
     public void startLevel4(){
         clearScreen();
         System.out.println("-------------Underground Tunnels Level 4-------------");
-        System.out.println("\n You head back out into the tunnels to do some exploring with the general goal of finding some medical supplies for the guards. You don't get far when you run into Crition, already carrying a box of medical supplies. You greet each other with a quick nod and head back to the room that could now be called the infirmary, since it's full of wounded guards. As you walk together silently, you hear a sudden splash. You begin to wonder if Crition has a pool in here somewhere too, as you see his eyes suddenly go wide and his head whip towards the sound. It sounds like it came from the same direction you entered the tunnels. The well.");
+        System.out.println("\n You head back out into the tunnels to do some exploring with the general goal of finding some medical supplies for the guards. You don't get far when you run into Crition, already carrying a box of medical supplies. You greet each other with a quick nod and head back to the room that could now be called the infirmary, since it's full of wounded guards. As you walk together silently, you hear a sudden splash. You begin to wonder if Crition has a pool in here somewhere too, as you see his eyes suddenly go wide and his head whip towards the sound. It sounds like it came from the same direction you entered the tunnels. The well. You ask Crition what to do, and he stammers for a moment before looking down at the medical supplies in his hands.");
         System.out.println(NonPlayerCharacter.CRITION.textColor + "\nCrition: Wait here!" + Character.RESET);
-        System.out.println("\nCrition runs off the warn the guards, and you turn and steel you self for an attack. Except you don't really know how you should stand, or how you should hold the sword, you've never really held a sword before. You do your best. After about 2 minutes, which felt like eons, Crition comes running back up to you, holding his throwing stars.");
+        System.out.println("\nCrition runs off the warn the guards, and you turn and steel you self for an attack. Except you don't really know how you should stand, or how you should hold the sword, you've never really held a sword before. You do your best. You listen intently and begin to hear the sounds of my rat-like feet on the stone of the tunnels. They're getting closer, and there are a lot of them. After about 2 minutes, which felt like eons, Crition comes running back up to you, holding his throwing stars.");
         System.out.println(NonPlayerCharacter.CRITION.textColor + "\nCrition: The guards are bandaging themselves up, the'll come when they can. For now let's give them as much time as possible." + Character.RESET);
         continueGame();
         clearScreen();
         System.out.println("\nYou stand together in silence, for what feels like hundreds more eons, listening to the sounds of " + Species.KRYSY.speciesName + " soldiers making their way into the tunnels and towards you.");
         System.out.println(NonPlayerCharacter.CRITION.textColor + "\nCrition: You know, I once got drunk, turned into a dragon, and fell asleep on the Queens road, just at the edge of town. Block any carts from going in or out for hours. The tavern nearly ran out of ale by the time they got the shipment in." + Character.RESET);
         System.out.println(Game.player.textColor + "\nYou: Crition why are you telling me this right now?");
-        System.out.println(NonPlayerCharacter.CRITION.textColor + "\nCrition: Thought it was funny. Thought we might dies soon." + Character.RESET);
+        System.out.println(NonPlayerCharacter.CRITION.textColor + "\nCrition: Thought it was funny. Thought we might die soon." + Character.RESET);
         System.out.println("\nAnd suddenly the " + Species.KRYSY.speciesName + " were upon you.");
-        inputLoop: while (true) {
-            System.out.println("\n1. Continue\n2. Go somewhere else");
-            this.playerReply = Game.playerInput.nextInt();
-            switch (playerReply) {
-                case 0:
-                    System.exit(0);
-                case 1:
-                    completeLevel();
-                    this.startLevel5();
-                    break inputLoop;
-                case 2:
-                    this.nextArea();
-                    break inputLoop;
-                default:
-                    System.out.println("Invalid input");
-            }
-        }
-    };
-
-    public void startLevel5(){
+        continueGame();
         clearScreen();
-        System.out.println("-------------Underground Tunnels Level 5-------------");
+        System.out.println("You watch as Crition fights back the hoard of " + Species.KRYSY.speciesName + " trying to block them from the wounded guards just down the tunnel. You lift your short sword and run into the fray. The world goes black except for the flash of steel through the air, all you can hear is metal grinding against metal.");
+        System.out.println(NonPlayerCharacter.CRITION.textColor + "\nCrition: " + Game.player.name + ", Get over here with me!" + Character.RESET);
+        System.out.println("\nYou hack and slash you way over to Crition, and the two of you stand shoulder to shoulder blocking the " + Species.KRYSY.speciesName + "'s path to the wounded guards. Surprisingly you notice that Crition's throwing stars are doing a good amount of damage, and he's yet to run out of them. Crition's throwing stars keep too many enemies from getting close, and those that do meet your sword. You quickly realize though that this is not enough, and you are both being pushed back towards the makeshift infirmary. As if they could hear your worried thoughts, Royal Guards stream out of the room and past you to take on the " + Species.KRYSY.speciesName + " head on.");
+        System.out.println("\nJust as you turn to leave, Crition takes a " + Species.KRYSY.speciesName + " axe to the shoulder. You beat back the " + Species.KRYSY.speciesName + " that attacked him and wrap your arm around him to pull him back with you to retreat.");
+        continueGame();
+        System.out.println("\nYou make your way back to the makeshift infirmary to stand as the guards' last line of defence. Taking a look around, you see quite a few bandaged guards left in the room with, sitting against the walls. You can see though, that they still aren't ready to go down without a fight, as all have a weapon in their hand, and a determined look on their face. You look to Crition, knowing he needs medical attention himself, but he shakes his head as if to say he'll be fine.");
+        if (NonPlayerCharacter.KEVON.isAlive) {
+            System.out.println("\nJust as you move to turn back to the door, you notice a shadow move over the hole made in the ceiling earlier.");
+            System.out.println(NonPlayerCharacter.KEVON.textColor + "\nKevon: Hey guys! Don't worry I'm here to help!" + Character.RESET);
+            System.out.println("\nAs you're wondering how this goofy farmer even made his way into the castle let alone found this entrance into the tunnels, Kevon's hand slips on the edge of the opening and he tumbles in, head first. One of the guards rushes over to administer medical attention, but I fear it's too late, the damage doesn't look pretty. Unfortunately, you don't have time to dwell on Kevon right now, you hear foot steps coming your way.");
+        }
+        System.out.println("\nYou can hear the rush of footsteps headed straight for the infirmary and start to calculate your chances of survival, but quickly give that up as you're not liking your odds. Your pursuers reach the entrance of the room, and you're surprised to see that the footsteps you heard were that of the Royal Guard. The guards announce that they have defeated the " + Species.KRYSY.speciesName + " soldiers, and will begin working to block off all entrances to the tunnels. Relieved, Crition slumps to the ground finally accepting medical help from an officer nearby. You're instructed to stay in the room until the guards give the all clear. You are all too happy to sit yourself down on the cold stone floor, and wait.");
+        leavePrompt();
     };
 
-//    public void finishStory() {
-//
-//    }
+    public void finishStory() {
+        clearScreen();
+        System.out.println("-----------------------The End-----------------------");
+        
+    }
 }

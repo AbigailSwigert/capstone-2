@@ -41,7 +41,7 @@ public class Tavern extends MapArea {
     public void playerIntro() {
         clearScreen();
         System.out.println(Character.RESET + "-----------------Terminal Fascination-----------------");
-        System.out.println("Hello traveler, what is your name?");
+        System.out.println("\nHello traveler, what is your name?");
         Game.playerInput.nextLine();
         Game.player.name = Game.playerInput.nextLine();
         System.out.println("\nHuh, " + Game.player.name + ", interesting. What species would you like to play as?\n1. Human\n2. Ursataur\n3. Merperson\n4. Shapeshifter");
@@ -74,7 +74,7 @@ public class Tavern extends MapArea {
     public void tavernIntro() {
         clearScreen();
         System.out.println("------------------------Intro------------------------");
-        System.out.println("You find yourself treking through an unfamiliar kingdom that appears war torn and nearly deserted. The only activity you can see appears to be coming from a fairly lively tavern down the road. You are feeling a bit hungry and would like the chance to rest your legs, so you decide to head that way. Upon reaching the door to the tavern, you spot an old sign just overhead marked with a flowing blue script that reads '" + this.areaName + "' and decide to enter.");
+        System.out.println("\nYou find yourself treking through an unfamiliar kingdom that appears war torn and nearly deserted. The only activity you can see appears to be coming from a fairly lively tavern down the road. You are feeling a bit hungry and would like the chance to rest your legs, so you decide to head that way. Upon reaching the door to the tavern, you spot an old sign just overhead marked with a flowing blue script that reads '" + this.areaName + "' and decide to enter.");
         continueGame();
         System.out.println("\nYou open the door, and stand for a moment in the doorway, letting your eyes adjust to the dark room before scanning the crowd. Behind the bar you see a woman with pale grey skin, long pink hair, and black pupilless eyes. She's beautiful, but in that way that makes you think she might eat you, so you decide she must be one of the Merfolk. You continue scanning the crowd, spotting multiple farmers and other peasants, noticing nothing out of the ordinary. That is until you see a beautiful young black woman with the gleam of a tiara on her head.");
         continueGame();
