@@ -4,6 +4,7 @@ abstract class Character { // Abstraction
     String name;
     Species species;
     String textColor;
+    public boolean isAlive;
 
     // Terminal text colors:
     public static final String RESET = "\u001B[0;90m";

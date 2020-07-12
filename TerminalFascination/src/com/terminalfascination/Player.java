@@ -7,6 +7,7 @@ public class Player extends Character {
         this.name = name;
         this.species = species;
         this.textColor = WHITE;
+        this.isAlive = true;
     }
 
     public static Player getInstance(String name, Species species) {

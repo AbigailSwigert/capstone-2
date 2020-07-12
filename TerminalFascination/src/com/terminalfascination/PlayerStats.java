@@ -28,6 +28,9 @@ abstract class PlayerStats {
         MapArea.clearScreen();
         System.out.println(Character.RESET + "\n---------------------Player Stats---------------------");
         System.out.println("\nCongratulations " + Game.player.name + ", you completed " + totalLevels.process(allCompletedLevels) + " levels of Terminal Fascination!\n");
+        if(!Game.player.isAlive) {
+            System.out.println("Unfortunately you were killed by " + NonPlayerCharacter.GABEL.name + "\n");
+        }
         printAllAreasCompletedLevels();
         AbandonedCastle.printLoot();
     }
