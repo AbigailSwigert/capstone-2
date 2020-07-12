@@ -64,7 +64,6 @@ public class UndergroundTunnels extends MapArea {
                     break inputLoop;
                 case 3:
                     System.out.println(Game.player.textColor + "\nYou: Nope." + Character.RESET);
-                    completeLevel();
                     this.nextArea();
                     break inputLoop;
                 default:
@@ -173,7 +172,8 @@ public class UndergroundTunnels extends MapArea {
             continueGame();
         }
         System.out.println("\nYou can hear the rush of footsteps headed straight for the infirmary and start to calculate your chances of survival, but quickly give that up as you're not liking your odds. Your pursuers reach the entrance of the room, and you're surprised to see that the footsteps you heard were that of the Royal Guard. The guards announce that they have defeated the " + Species.KRYSY.speciesName + " soldiers, and will begin working to block off all entrances to the tunnels. Relieved, Crition slumps to the ground finally accepting medical help from an officer nearby. You're instructed to stay in the room until the guards give the all clear. You are all too happy to sit yourself down on the cold stone floor, and wait.");
-        leavePrompt();
+        continueGame();
+        completeLevel();
     };
 
     public void finishStory() {

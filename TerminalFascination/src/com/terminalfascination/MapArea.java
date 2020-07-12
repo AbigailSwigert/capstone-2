@@ -9,7 +9,7 @@ abstract class MapArea {
 
     public void completeLevel() {
         this.levelsCompleted += 1;
-        PlayerStats.allCompletedLevels.put(this.areaName, levelsCompleted);
+        PlayerStats.allCompletedLevels.put(this.areaName, this.levelsCompleted);
         if(this.levelsCompleted >= this.maxLevels) {
             this.finishStory();
         }
@@ -19,7 +19,7 @@ abstract class MapArea {
         if(this.levelsCompleted >= this.maxLevels){
             System.out.println("You may not go back to " + areaName + " at this time.");
         } else {
-            switch (levelsCompleted) {
+            switch (this.levelsCompleted) {
                 case 0:
                     this.startLevel1();
                     break;
