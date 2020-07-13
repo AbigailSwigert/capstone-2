@@ -19,62 +19,6 @@ public class Tavern extends MapArea {
 
     public static final Tavern theTavern = Tavern.getInstance("The Watery Grave");
 
-    // Polymorphism via method overriding
-    public void enterArea(){
-        if(this.levelsCompleted >= this.maxLevels){
-            System.out.println("\nYou may not go back to " + areaName + " at this time.");
-        } else {
-            System.out.println("\nWelcome to Terminal Fascination, are you ready to start the game?\n1. Yes\n2. Not yet\nPress 0 to quit the game at anytime");
-            inputLoop: while(true) {
-                this.playerReply = Game.playerInput.nextInt();
-                switch (this.playerReply) {
-                    case 0:
-                    case 2:
-                        System.exit(0);
-                    case 1 :
-                        playerIntro();
-                        break inputLoop;
-                    default:
-                        System.out.println("Invalid input");
-                }
-            }
-        }
-    };
-
-    public void playerIntro() {
-        clearScreen();
-        System.out.println(Character.RESET + "-----------------Terminal Fascination-----------------");
-        System.out.println(Character.RESET + "-------------------------Beta-------------------------");
-        System.out.println("\nHello traveler, what is your name?");
-        Game.playerInput.nextLine();
-        Game.player.name = Game.playerInput.nextLine();
-        System.out.println("\nHuh, " + Game.player.name + ", interesting. What species would you like to play as?\n1. Human\n2. Ursataur\n3. Merperson\n4. Shapeshifter");
-        inputLoop: while(true) {
-            this.playerReply = Game.playerInput.nextInt();
-            switch (this.playerReply) {
-                case 0:
-                    System.exit(0);
-                case 1:
-                    Game.player.species = Species.HUMAN;
-                    break inputLoop;
-                case 2:
-                    Game.player.species = Species.URSATAUR;
-                    break inputLoop;
-                case 3:
-                    Game.player.species = Species.MERPERSON;
-                    break inputLoop;
-                case 4:
-                    Game.player.species = Species.SHAPESHIFTER;
-                    break inputLoop;
-                default:
-                    System.out.println("Invalid input");
-            }
-        }
-        System.out.println("\n" + Game.player.name + " the " + Game.player.species.speciesName + ", this will be a fun game.\n");
-        continueGame();
-        tavernIntro();
-    };
-
     public void tavernIntro() {
         clearScreen();
         System.out.println("------------------------Intro------------------------");
