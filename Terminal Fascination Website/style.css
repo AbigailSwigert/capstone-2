@@ -73,6 +73,10 @@ h1 {
     font-size: 300%;
 }
 
+#beta-info {
+    color: #9cff9a;
+}
+
 #button-container {
     display: flex;
 }

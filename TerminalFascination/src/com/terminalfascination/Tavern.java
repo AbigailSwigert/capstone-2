@@ -44,6 +44,7 @@ public class Tavern extends MapArea {
     public void playerIntro() {
         clearScreen();
         System.out.println(Character.RESET + "-----------------Terminal Fascination-----------------");
+        System.out.println(Character.RESET + "-------------------------Beta-------------------------");
         System.out.println("\nHello traveler, what is your name?");
         Game.playerInput.nextLine();
         Game.player.name = Game.playerInput.nextLine();
