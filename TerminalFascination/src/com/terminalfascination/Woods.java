@@ -49,6 +49,7 @@ public class Woods extends MapArea {
         System.out.println("------------------The Woods Level 4------------------");
         System.out.println("\nThis level is incomplete");
         continueGame();
+        finishStory();
     }
 
     // Polymorphism via method overriding

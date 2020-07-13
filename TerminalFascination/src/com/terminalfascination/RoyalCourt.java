@@ -49,6 +49,7 @@ public class RoyalCourt extends MapArea {
         System.out.println("---------------The Royal Court Level 4---------------");
         System.out.println("\nThis level is incomplete");
         continueGame();
+        finishStory();
     }
 
     // Polymorphism via method overriding
