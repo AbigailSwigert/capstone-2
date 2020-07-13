@@ -1,21 +1,25 @@
 package com.terminalfascination;
 
+// Inheritance
 public class UndergroundTunnels extends MapArea {
+
+    // Singleton
     private static UndergroundTunnels undergroundTunnels_instance = null;
 
-    public UndergroundTunnels(String areaName, NonPlayerCharacter areaCompanion) {
+    private UndergroundTunnels(String areaName, NonPlayerCharacter areaCompanion) {
         this.areaName = areaName;
         this.areaCompanion = areaCompanion;
     }
 
-
     public static final UndergroundTunnels theUndergroundTunnels = UndergroundTunnels.getInstance("The Underground Tunnels", NonPlayerCharacter.CRITION);
 
+    // Encapsulation
     public static UndergroundTunnels getInstance(String areaName, NonPlayerCharacter areaCompanion) {
         if (undergroundTunnels_instance == null) undergroundTunnels_instance = new UndergroundTunnels(areaName, areaCompanion);
         return undergroundTunnels_instance;
     }
 
+    // Polymorphism via method overriding
     public void startLevel1() {
         clearScreen();
         System.out.println("-------------Underground Tunnels Level 1-------------");
@@ -72,6 +76,7 @@ public class UndergroundTunnels extends MapArea {
         }
     };
 
+    // Polymorphism via method overriding
     public void startLevel2(){
         clearScreen();
         System.out.println("-------------Underground Tunnels Level 2-------------");
@@ -103,6 +108,7 @@ public class UndergroundTunnels extends MapArea {
         }
     };
 
+    // Polymorphism via method overriding
     public void startLevel3(){
         clearScreen();
         System.out.println("-------------Underground Tunnels Level 3-------------");
@@ -143,6 +149,7 @@ public class UndergroundTunnels extends MapArea {
         leavePrompt();
     };
 
+    // Polymorphism via method overriding
     public void startLevel4(){
         clearScreen();
         System.out.println("-------------Underground Tunnels Level 4-------------");
@@ -176,6 +183,7 @@ public class UndergroundTunnels extends MapArea {
         completeLevel();
     };
 
+    // Polymorphism via method overriding
     public void finishStory() {
         clearScreen();
         System.out.println("-----------------------The End-----------------------");

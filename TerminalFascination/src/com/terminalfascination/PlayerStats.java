@@ -2,14 +2,17 @@ package com.terminalfascination;
 
 import java.util.HashMap;
 
+// Abstraction
 abstract class PlayerStats {
 
     public static final HashMap<String, Integer> allCompletedLevels = new HashMap<>();
 
+    // Interface
     interface Processor<T, R> {
         R process(T arg);
     }
 
+    // Lambda
     private static final Processor<HashMap<String, Integer>, Integer> totalLevels = (allCompletedLevels) -> {
         int sum = 0;
         for(Integer i: allCompletedLevels.values()){

@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+// Inheritance
 public class AbandonedCastle extends MapArea {
 
+    // Singelton
     private static final ArrayList<String> loot = new ArrayList<>();
 
     private static AbandonedCastle abandonedCastle_instance = null;
@@ -17,11 +19,13 @@ public class AbandonedCastle extends MapArea {
 
     public static final AbandonedCastle theAbandonedCastle = AbandonedCastle.getInstance("The Abandoned Castle", NonPlayerCharacter.GABEL);
 
+    // Encapsulation
     public static AbandonedCastle getInstance(String areaName, NonPlayerCharacter areaCompanion) {
         if (abandonedCastle_instance == null) abandonedCastle_instance = new AbandonedCastle(areaName, areaCompanion);
         return abandonedCastle_instance;
     }
 
+    // Stream
     public static void printLoot() {
         System.out.println("Loot acquired:");
         if (loot.size() > 0) {

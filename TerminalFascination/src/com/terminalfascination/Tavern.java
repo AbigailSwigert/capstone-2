@@ -1,7 +1,9 @@
 package com.terminalfascination;
 
+// Inheritance
 public class Tavern extends MapArea {
 
+    // Singleton
     private static Tavern tavern_instance = null;
 
     public Tavern(String areaName) {
@@ -9,13 +11,15 @@ public class Tavern extends MapArea {
         this.maxLevels = 1;
     }
 
-    public static Tavern getInstance(String areaName) {
+    // Encapsulation
+    private static Tavern getInstance(String areaName) {
         if (tavern_instance == null) tavern_instance = new Tavern(areaName);
         return tavern_instance;
     }
 
     public static final Tavern theTavern = Tavern.getInstance("The Watery Grave");
 
+    // Polymorphism via method overriding
     public void enterArea(){
         if(this.levelsCompleted >= this.maxLevels){
             System.out.println("\nYou may not go back to " + areaName + " at this time.");
@@ -209,6 +213,7 @@ public class Tavern extends MapArea {
         }
     }
 
+    // Polymorphism via method overriding
     public void completeLevel(){
         this.levelsCompleted += 1;
         PlayerStats.allCompletedLevels.put(this.areaName, levelsCompleted);

@@ -1,5 +1,6 @@
 package com.terminalfascination;
 
+// Abstraction
 abstract class MapArea {
     String areaName;
     NonPlayerCharacter areaCompanion;
@@ -15,6 +16,7 @@ abstract class MapArea {
         }
     }
 
+    // Polymorphism via method overriding
     public void enterArea(){
         if(this.levelsCompleted >= this.maxLevels){
             System.out.println("You may not go back to " + areaName + " at this time.");

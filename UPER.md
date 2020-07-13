@@ -55,7 +55,13 @@
     - Tavern - a location the player will only be allowed to visit once, that introduces them to all the NPCs
 * Class diagram created (assets/class-diagram.png)
 * Completed OOP.md
-*
+* Wrote storyline for Tavern level
+* Wrote storylines for Underground Tunnel levels
+* Created game logo
+* Wrote instructions and added them to Game-Instructions.md and the game website
+* Created game website
+* Wrote all levels for Abandoned Castle
+* Added comments marking requirements and bonuses in the code
 *
 
 <h2>

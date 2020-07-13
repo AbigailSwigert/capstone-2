@@ -1,5 +1,6 @@
 package com.terminalfascination;
 
+// Abstraction
 abstract class Credits {
 
     public static void printGameCredits() {

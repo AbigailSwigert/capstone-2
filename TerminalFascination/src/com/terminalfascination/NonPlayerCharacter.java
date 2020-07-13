@@ -1,6 +1,7 @@
 package com.terminalfascination;
 
-public class NonPlayerCharacter extends Character { // Inheritance
+// Inheritance
+public class NonPlayerCharacter extends Character {
 
     private NonPlayerCharacter(String name, Species species, String textColor) {
         this.name = name;
@@ -8,7 +9,8 @@ public class NonPlayerCharacter extends Character { // Inheritance
         this.textColor = textColor;
     }
 
-    private NonPlayerCharacter(String name, Species species, String textColor, boolean isAlive) { // Polymorphism via method overloading
+    // Polymorphism via method overloading
+    private NonPlayerCharacter(String name, Species species, String textColor, boolean isAlive) {
         this.name = name;
         this.species = species;
         this.isAlive = isAlive;

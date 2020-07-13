@@ -2,6 +2,7 @@ package com.terminalfascination;
 
 import java.util.Scanner;
 
+// Abstraction
 abstract class Game {
 
     public static Player player = Player.getInstance(null, null);
