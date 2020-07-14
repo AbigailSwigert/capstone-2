@@ -6,18 +6,18 @@ public class Tavern extends MapArea {
     // Singleton
     private static Tavern tavern_instance = null;
 
-    public Tavern(String areaName) {
-        this.areaName = areaName;
+    public Tavern() {
+        this.areaName = "The Watery Grave";
         this.maxLevels = 1;
     }
 
     // Encapsulation
-    private static Tavern getInstance(String areaName) {
-        if (tavern_instance == null) tavern_instance = new Tavern(areaName);
+    private static Tavern getInstance() {
+        if (tavern_instance == null) tavern_instance = new Tavern();
         return tavern_instance;
     }
 
-    public static final Tavern theTavern = Tavern.getInstance("The Watery Grave");
+    public static final Tavern theTavern = Tavern.getInstance();
 
     public void tavernIntro() {
         clearScreen();
@@ -162,6 +162,6 @@ public class Tavern extends MapArea {
     public void completeLevel(){
         this.levelsCompleted += 1;
         PlayerStats.allCompletedLevels.put(this.areaName, levelsCompleted);
-    };
+    }
 
 }

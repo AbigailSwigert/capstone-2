@@ -34,7 +34,6 @@
 * Create a logo
 * Create images of each NPC
 * Create landing page for game
-* 
 
 <h2>
     3. Executing the Plan
@@ -62,16 +61,14 @@
 * Created game website
 * Wrote all levels for Abandoned Castle
 * Added comments marking requirements and bonuses in the code
-*
 
 <h2>
     4. Reflection / Refactor
 </h2>
-*
-*
-*
-*
-*
-*
-*
-*
+
+* Likely should have planned for fewer levels, but I wanted to get a full story across
+* Had issues getting the code to work when the levels were all their own class, maybe could have made it work with more time, not sure if it was the better way to create each level though
+* With more time, I'd like to get the paragraphs laid out in a way that is pleasing to look at, the current wrap will wrap anywhere in a word and not add a dash, so it can be harder to read. Maybe a GUI is needed.
+* Will continue this project until all levels are finished, and the "alpha build" is available.
+* Would like to add character art to the website once I have Adobe Illustrator again
+* Presentation took slightly longer than was allotted, should have set an exact plan of the levels I'd run through

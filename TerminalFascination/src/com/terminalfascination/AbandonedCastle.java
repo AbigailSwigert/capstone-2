@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 // Inheritance
 public class AbandonedCastle extends MapArea {
 
-    // Singelton
+    // Singleton
     private static final ArrayList<String> loot = new ArrayList<>();
 
     private static AbandonedCastle abandonedCastle_instance = null;

@@ -45,7 +45,7 @@ abstract class MapArea {
     };
 
     public void nextArea() {
-        System.out.println("\nWhere would you like to go?\n0. Quit game\n1. The Royal Court\n2. The Abandoned Castle\n3. The Underground Tunnels\n4. The Woods");
+        System.out.println("\nWhere would you like to go?\n0. Quit game\n1. The Royal Court -not available in beta\n2. The Abandoned Castle\n3. The Underground Tunnels\n4. The Woods -not available in beta");
         inputLoop: while (true) {
             this.playerReply = Game.playerInput.nextInt();
             switch (playerReply) {
