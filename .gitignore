@@ -1,1 +1,7 @@
 .DS_Store
+.idea/*
+*.iml
+*.eps
+TerminalFascination/.idea
+TerminalFascination/out
+*.psd
